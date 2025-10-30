@@ -1,0 +1,34 @@
+find_package(Boost COMPONENTS unit_test_framework REQUIRED)
+
+include(CTest)
+enable_testing()
+
+#sheet1_2: test_vector
+add_executable(test_vector test_vec.cpp)
+target_link_libraries(test_vector PRIVATE Boost::unit_test_framework MDlib)
+add_test (NAME TestVector COMMAND test_vector)
+
+#sheet1_2: test_particle
+add_executable(test_particle test_particle.cpp)
+target_link_libraries(test_particle PRIVATE Boost::unit_test_framework MDlib)
+add_test (NAME TestParticle COMMAND test_particle)
+
+#sheet3: Exercise 1
+add_executable(test_particlecontainer test_particlecontainer.cpp)
+target_link_libraries(test_particlecontainer PRIVATE Boost::unit_test_framework MDlib)
+add_test (NAME TestParticlecontainer COMMAND test_particlecontainer)
+
+#sheet3: Exercise 2
+#add_executable(test_aos_forces test_aos_forces.cpp)
+#target_link_libraries(test_aos_forces PRIVATE Boost::unit_test_framework MDlib)
+#add_test (NAME TestAoSForce COMMAND test_aos_forces)
+
+#sheet3: Exercise 3
+#add_executable(test_aos_integrator test_aos_integrator.cpp)
+#target_link_libraries(test_aos_integrator PRIVATE Boost::unit_test_framework MDlib)
+#add_test (NAME TestAoSIntegrator COMMAND test_aos_integrator)
+
+#sheet3: Exercise 4
+#add_executable(test_aos_boundaries test_aos_boundaries.cpp)
+#target_link_libraries(test_aos_boundaries PRIVATE Boost::unit_test_framework MDlib)
+#add_test (NAME TestAoSBoundaries COMMAND test_aos_boundaries)

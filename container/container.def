@@ -1,0 +1,58 @@
+Bootstrap: docker
+From: ubuntu:24.04
+
+%environment
+   . /opt/conda/etc/profile.d/conda.sh
+   export CARGO_HOME="/opt/cargo"
+   export RUSTUP_HOME="/opt/rustup"
+   export HISTFILE="~/.bash_history_container"
+   PATH=$PATH:/opt/cargo/bin
+   conda activate hpsc
+   export BOOST_TEST_LOG_LEVEL=all
+
+%post
+   # install dependencies
+   apt-get -y update
+   apt-get -y install wget curl build-essential pkg-config  cmake libboost-all-dev clang-format valgrind binutils ccache doxygen graphviz openmpi-bin libopenmpi-dev libssl-dev
+   
+   # install rust ecosystem for sheet 8
+   export CARGO_HOME="/opt/cargo"
+   export RUSTUP_HOME="/opt/rustup"
+   mkdir -p $CARGO_HOME
+   mkdir -p $RUSTUP_HOME
+   curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh -s -- -y
+   . "/opt/cargo/env"
+
+   # get miniconda
+   curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+   bash Miniforge3-$(uname)-$(uname -m).sh -b -f -p /opt/conda
+   rm "Miniforge3-$(uname)-$(uname -m).sh"
+  
+   # configure conda to use conda-forge for license reasons
+   . /opt/conda/etc/profile.d/conda.sh
+   conda config --add channels conda-forge
+   conda config --set channel_priority strict
+   
+   # create conda environment
+   conda create -n "hpsc" -y
+   conda activate hpsc
+
+   # install packages (NOTE: may need to specify python version here for compat.)
+   conda install -y pip python=3.12
+   pip install pytest pandas seaborn matplotlib numpy scipy maturin
+   pip install torch --index-url https://download.pytorch.org/whl/cpu
+
+   # install rust package for force computation
+   # (cd /opt/pyinterfacing && maturin develop -r)
+   
+   # clean up OS
+   apt-get clean
+   apt-get autoremove
+   rm -rf /var/lib/apt/lists/*
+
+%labels
+   Author Yannis Schumann
+   Email schumany@desy.de
+
+%help
+   This container provides a reproducible environment for the molecular dynamics simulation to be iplemented in the exercise class of the 'High Performance Scientific Computing' class by Prof. Philipp Neumann
