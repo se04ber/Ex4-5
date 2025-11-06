@@ -7,5 +7,4 @@ set(CMAKE_CXX_COMPILER_LAUNCHER ccache)
 
 add_subdirectory ("lib")
 add_subdirectory ("tests")
-# add_subdirectory ("mpiprepex")
-#add_subdirectory ("simulations")
+add_subdirectory ("simulations")

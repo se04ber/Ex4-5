@@ -12,11 +12,14 @@ target_sources(MDlib PUBLIC particle3d.cpp)
 #sheet 3 - Exercise 1
 target_sources(MDlib PUBLIC particlecontainer.cpp)
 #sheet 3 - Exercise 2
-#target_sources(MDlib PUBLIC forces.cpp)
+target_sources(MDlib PUBLIC forces.cpp)
 #sheet 3 - Exercise 3
-#target_sources(MDlib PUBLIC integrator.cpp)
+target_sources(MDlib PUBLIC integrator.cpp)
 #sheet 3 - Exercise 4
-#target_sources(MDlib PUBLIC boundaries.cpp)
+target_sources(MDlib PUBLIC boundaries.cpp)
+
+#sheet 4 - Exercise 1
+target_sources(MDlib PUBLIC problem.cpp)
 
 
 #target_link_options(MDlib PUBLIC -fopenmp)
