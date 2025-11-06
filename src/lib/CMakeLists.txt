@@ -20,6 +20,9 @@ target_sources(MDlib PUBLIC boundaries.cpp)
 
 #sheet 4 - Exercise 1
 target_sources(MDlib PUBLIC problem.cpp)
+#sheet 4 - Exercise 2
+target_sources(MDlib PUBLIC utils.cpp)
+target_sources(MDlib PUBLIC soacontainer.cpp)
 
 
 #target_link_options(MDlib PUBLIC -fopenmp)

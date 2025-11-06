@@ -32,3 +32,8 @@ add_test (NAME TestAoSIntegrator COMMAND test_aos_integrator)
 add_executable(test_aos_boundaries test_aos_boundaries.cpp)
 target_link_libraries(test_aos_boundaries PRIVATE Boost::unit_test_framework MDlib)
 add_test (NAME TestAoSBoundaries COMMAND test_aos_boundaries)
+
+#sheet4: Exercise 2.1
+add_executable(test_soa_container test_soa_container.cpp)
+target_link_libraries(test_soa_container PRIVATE Boost::unit_test_framework MDlib)
+add_test (NAME TestSaOContainer COMMAND test_soa_container)
