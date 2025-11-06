@@ -1,5 +1,6 @@
 #pragma once
 #include "particlecontainer.hpp"
+#include "soacontainer.hpp"
 
 template <typename T>
 class VelocityStoermerVerlet {
@@ -10,7 +11,10 @@ class VelocityStoermerVerlet {
   void update_positions(ParticleContainer<T>& container) const;
   // updates velocity of all particles in particle container
   void update_velocities(ParticleContainer<T>& container) const;
-  // updates positions of all particles in particle container
+  // updates positions of all particles in SoA container
+  void update_positions(SoAContainer<T>& container) const;
+  // updates velocity of all particles in SoA container
+  void update_velocities(SoAContainer<T>& container) const;
 
  private:
   const T m_dt;

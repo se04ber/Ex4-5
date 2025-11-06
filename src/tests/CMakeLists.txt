@@ -47,3 +47,8 @@ add_test (NAME TestSoAForce COMMAND test_soa_force)
 add_executable(test_soa_boundaries test_soa_boundaries.cpp)
 target_link_libraries(test_soa_boundaries PRIVATE Boost::unit_test_framework MDlib)
 add_test (NAME TestSoABoundaries COMMAND test_soa_boundaries)
+
+#sheet4: Exercise 2.4
+add_executable(test_soa_integrator test_soa_integrator.cpp)
+target_link_libraries(test_soa_integrator PRIVATE Boost::unit_test_framework MDlib)
+add_test (NAME TestSoAIntegrator COMMAND test_soa_integrator)
