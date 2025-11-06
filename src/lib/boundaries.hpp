@@ -1,5 +1,6 @@
 #pragma once
 #include "particlecontainer.hpp"
+#include "soacontainer.hpp"
 
 template <typename T>
 class ReflectiveBoundary {
@@ -11,6 +12,8 @@ class ReflectiveBoundary {
   const T get_max() const { return m_max; };
   // applies this boundary to the entire container
   void apply_container(ParticleContainer<T>& container) const;
+  // applies this boundary to the entire SoA container
+  void apply_container(SoAContainer<T>& container) const;
 
  private:
   const T m_min;    // lower boundary
