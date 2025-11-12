@@ -15,3 +15,9 @@ add_executable(gprof_target profiling.cpp)
 target_compile_options(gprof_target PUBLIC -Wall -g -pg -O3 -march=native -fopenmp)
 target_link_libraries(gprof_target MDlib)
 target_link_options(gprof_target PUBLIC -fopenmp)
+
+# Sheet 5 Exercise 1: scaling with no. of particles
+add_executable(particlescaling particlescaling.cpp)
+target_compile_options(particlescaling PUBLIC -g -O3 -march=native -fopenmp)
+target_link_libraries(particlescaling MDlib)
+target_link_options(particlescaling PUBLIC -fopenmp)
