@@ -57,3 +57,8 @@ add_test (NAME TestSoAIntegrator COMMAND test_soa_integrator)
 add_executable(test_linked_cell test_linkedcellcontainer.cpp)
 target_link_libraries(test_linked_cell PRIVATE Boost::unit_test_framework MDlib)
 add_test (NAME TestLinkedCell COMMAND test_linked_cell)
+
+#sheet5: Exercise 3
+add_executable(test_lc_forces test_linked_cell_forces.cpp)
+target_link_libraries(test_lc_forces PRIVATE Boost::unit_test_framework MDlib)
+add_test (NAME TestLCForces COMMAND test_lc_forces)
