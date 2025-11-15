@@ -24,9 +24,11 @@ target_sources(MDlib PUBLIC problem.cpp)
 target_sources(MDlib PUBLIC utils.cpp)
 target_sources(MDlib PUBLIC soacontainer.cpp)
 
-#sheet 5 - Exercise 1
-target_sources(MDlib PUBLIC linkedcellcontainer.cpp)
+##sheet 5 - Exercise 2
+#target_sources(MDlib PUBLIC linkedcellcontainer.cpp)
 
+##sheet 5 - Exercise 4
+#target_sources(MDlib PUBLIC problem.cpp)
 
 #target_link_options(MDlib PUBLIC -fopenmp)
 #target_compile_definitions(MDlib PUBLIC -DNDEBUG)
