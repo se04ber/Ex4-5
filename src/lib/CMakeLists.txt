@@ -25,7 +25,7 @@ target_sources(MDlib PUBLIC utils.cpp)
 target_sources(MDlib PUBLIC soacontainer.cpp)
 
 ##sheet 5 - Exercise 2
-#target_sources(MDlib PUBLIC linkedcellcontainer.cpp)
+target_sources(MDlib PUBLIC linkedcellcontainer.cpp)
 
 ##sheet 5 - Exercise 4
 #target_sources(MDlib PUBLIC problem.cpp)
